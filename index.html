@@ -3,7 +3,11 @@
   <script>
   </script>
   <style>
-
+.picholder{
+display:inline-block;
+border:0.2em black solid;
+margin:0.5em;
+}
   body{font-family:sans-serif;}
 
 body{
@@ -12,13 +16,10 @@ background-color:rgb(173, 216, 255);
 
 .center{text-align:center;}
 
-
-
-#id2x2-img{position:relative;
-left:0%;
-bottom:20%;
-}
-
+.class2x2image{display:flex;
+justify-content:center;}
+.class3x3image{display:flex;
+justify-content:flex-start;}
   </style>
   </head>
   <body>
@@ -26,7 +27,6 @@ bottom:20%;
   <h1>
   Welcome to 2x2-algs!
   </h1>
-  
   <h2>About</h2>
 <p>This is website that I made because I think I have made a new algorithm set for 2x2.<br>
 So I'll add new algorithm sets as I learn them some I don't know like the new algorithm set for 2x2.<br>
@@ -39,13 +39,33 @@ My mains
 </h2>
 <p>
 I am currently competing in 5 events: 2x2, 3x3, Skewb, Pyriminx and 3x3 One Handed.<br>
-My mains are: For 2x2 my main is the <a href=https://www.thecubicle.com/collections/premium-cubes/products/angstrom-valk-2-m target="_blank">Angstrom Valk 2M</a>, for 3x3 and 3x3
- One Handed <a href=https://www.thecubicle.com/collections/3x3-speed-cubes/products/yuxin-little-magic-3x3 target="_blank">Yuxin Little Magic 3x3</a>,<br>
-for Skewb <a href=https://www.thecubicle.com/collections/skewb/products/cyclone-boys-magnetic-skewb target="_blank">Cyclone Boys Magnetic Skewb</a>, and for Pyriminx 
-<a href=https://www.thecubicle.com/collections/best-cubes-of-2019/products/x-man-bell-magnetic-pyraminx target="_blank">X-Man Bell Magnetic Pyriminx</a>.
+My mains are: For 2x2 my main is the <a href=https://www.thecubicle.com/collections/premium-cubes/products/angstrom-valk-2-m>Angstrom Valk 2M</a>, for 3x3 and 3x3
+ One Handed <a href=https://www.thecubicle.com/collections/3x3-speed-cubes/products/yuxin-little-magic-3x3>Yuxin Little Magic 3x3</a>,<br>
+for Skewb <a href=https://www.thecubicle.com/collections/skewb/products/cyclone-boys-magnetic-skewb>Cyclone Boys Magnetic Skewb</a>, and for Pyriminx 
+<a href=https://www.thecubicle.com/collections/best-cubes-of-2019/products/x-man-bell-magnetic-pyraminx>X-Man Bell Magnetic Pyriminx</a>.
 </p>
-<img src="2x2.jpg" width=20%; id="id2x2-img" > </img>
-<p>Angstrom Valk 2M
+<div class="home-images">
+
+<div class="picholder" class="class2x2image">
+<img src="2x2.jpg" width=300em> </img>
+<p>Angstrom Valk 2M</p>
+</div>
+
+<div class="picholder" class="class3x3image">
+<img src="3x3.jpg"; width=300em/>
+ <p>
+Yuxin Little Magic 3x3
+</p>
+</div>
+
+<div class="picholder" class="classskewbimage">
+<img src="skewb.jpg" width=300em/>
+<p>Cyclone Boys Skewb</p>
+</div>
+
+<div class="picholder" class="classpyriminximage">
+<img src="pyriminx.jpg" width=300em/>
+<p>X-Man Bell Magnetic Pyriminx</p>
 </div>
 
 
