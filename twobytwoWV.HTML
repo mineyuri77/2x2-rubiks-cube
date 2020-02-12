@@ -1,0 +1,58 @@
+<html>
+  <head>
+  <script>
+ 
+  </script>
+  <style>
+  body{font-family:sans-serif;}
+.drop-down-menu{padding:0;
+margin:0; background-color:rgb(255, 255, 255);
+text-align:center;
+box-sizing:border-box;
+}
+
+.drop-down-menu ul{display:inline-flex; list-style:none;}
+.drop-down-menu ul li{width:10em; margin:0.5em; padding:0.5em; font-size:150%;}
+.drop-down-menu ul li a{text-decoration:none; color:#808080;}
+.drop-down-menu ul li a:hover {color:#000; border-radius:0.1em;}
+.sub-menu-1{display:none;}
+.drop-down-menu ul li:hover .sub-menu-1 {display:block; position:absolute; background-color:rgb(200,200,200); margin-top:0.5em; margin-left:-0.5em;}
+.drop-down-menu ul li:hover .sub-menu-1 ul{display:block;margin:0.2;}
+.sub-menu-2{display:none; color:#808080}
+.drop-down-menu ul li:hover .sub-menu-2 {display:block; position:absolute; background-color:rgb(200,200,200); margin-top:0.5em; margin-left:-0.5em;}
+.drop-down-menu ul li:hover .sub-menu-2 ul{display:block;margin:0.2;}
+.active a, .Active-2 a{color:#000 !important;}
+body{background-color:rgb(173, 216, 255);}
+  </style>
+  </head>
+  <body>
+  <div class="drop-down-menu">
+  <ul>
+  <li><a href="#">Home</a></li>
+ 
+  <li><div class="active"><a href="#">2x2</a></div>
+    <div class="sub-menu-1">
+  <ul>
+  <li><div class="Active-2"><a href="#">2x2 Winter Variation</a></div></li>
+  <li><a href="#">OLL</a></li>
+  <li><a href="#">PBL</a></li>
+  <li><a href="#">CLL</a></li>
+  <li><a href="#">EG-1</a></li>
+  </ul>
+  </div>
+  </li>
+  <li><a href="#">3x3</a>
+  <div class="sub-menu-2">
+  <ul>
+  <li><a href="#">2-Look OLL</a></li>
+  <li><a href="#">2-Look PLL</a></li>
+  <li><a href="#">OLL</a></li>
+  <li><a href="#">PLL</a></li>
+  </div>
+  </li> 
+ <li><a href="#">About</a></li>
+  </ul>
+  </div>
+  <h1>In Progress</h1>
+  </body>
+  </html>
