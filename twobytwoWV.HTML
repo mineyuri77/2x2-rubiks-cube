@@ -1,58 +1,138 @@
 <html>
   <head>
-  <script>
- 
-  </script>
-  <style>
+    <style>
   body{font-family:sans-serif;}
-.drop-down-menu{padding:0;
-margin:0; background-color:rgb(255, 255, 255);
-text-align:center;
-box-sizing:border-box;
-}
-
-.drop-down-menu ul{display:inline-flex; list-style:none;}
-.drop-down-menu ul li{width:10em; margin:0.5em; padding:0.5em; font-size:150%;}
-.drop-down-menu ul li a{text-decoration:none; color:#808080;}
-.drop-down-menu ul li a:hover {color:#000; border-radius:0.1em;}
-.sub-menu-1{display:none;}
-.drop-down-menu ul li:hover .sub-menu-1 {display:block; position:absolute; background-color:rgb(200,200,200); margin-top:0.5em; margin-left:-0.5em;}
-.drop-down-menu ul li:hover .sub-menu-1 ul{display:block;margin:0.2;}
-.sub-menu-2{display:none; color:#808080}
-.drop-down-menu ul li:hover .sub-menu-2 {display:block; position:absolute; background-color:rgb(200,200,200); margin-top:0.5em; margin-left:-0.5em;}
-.drop-down-menu ul li:hover .sub-menu-2 ul{display:block;margin:0.2;}
-.active a, .Active-2 a{color:#000 !important;}
 body{background-color:rgb(173, 216, 255);}
+#twobytwo, #twobytwoWV{color:#000;}
+.cases{display:flex;margin:1em;padding:1em;flex-wrap:wrap;justify-content:center;}
+.cases div{margin:0.5em;padding:0.5em;border-width:0.2em;border-style:solid;
+border-color:black;background-color:green;text-align:center;}
   </style>
+   <script src="jquery-3.1.1.min.js" ></script>
+  <script>
+ $(function(){
+
+      $("#includedMenu").load("menu.html"); 
+
+    });
+  </script>
+
+  <link href="menu.css" rel="stylesheet"/>
+  
   </head>
   <body>
-  <div class="drop-down-menu">
-  <ul>
-  <li><a href="index.html">Home</a></li>
- 
-  <li><div class="active"><a href="#">2x2</a></div>
-    <div class="sub-menu-1">
-  <ul>
-  <li><div class="Active-2"><a href="#">2x2 Winter Variation</a></div></li>
-  <li><a href="#">OLL</a></li>
-  <li><a href="#">PBL</a></li>
-  <li><a href="#">CLL</a></li>
-  <li><a href="#">EG-1</a></li>
-  </ul>
+
+  <div id="includedMenu"></div>
+  <div class="cases">
+  <div class="three corners oriented">
+  <img src="three corners.png"/>
+  <p>U F U2 R U R' U' F'</p>
   </div>
-  </li>
-  <li><a href="#">3x3</a>
-  <div class="sub-menu-2">
-  <ul>
-  <li><a href="#">2-Look OLL</a></li>
-  <li><a href="#">2-Look PLL</a></li>
-  <li><a href="#">OLL</a></li>
-  <li><a href="#">PLL</a></li>
+  <div class="two corners oriented rectangle 1">
+  <img src="2 corners rectangle 1.png"/>
+  <p>U R U' R' U' R' F R F'</p>
   </div>
-  </li> 
- <li><a href="#">About</a></li>
-  </ul>
+  <div class="two corners oriented rectangle 2">
+  <img src="2 corners rectangle 2.png"/>
+  <p>R U' R'</p>
   </div>
-  <h1>In Progress</h1>
+  <div class="two corners snake 1">
+  <img src="2 corners snake 1.png"/>
+  <p class="a">U' L' U' L U R</p>
+  <p>U R' U' R' F R F'</p>
+  </div>
+  <div class="two corners snake 2">
+  <img src="2 corners snake 2.png"/>
+  <p>U' L' U' L</p>
+  </div>
+  <div class="two corners tank 1">
+  <img src="two corners tank 1.png"/>
+  <p>R U R' U' R U' R'</p>
+  </div>
+  <div class="two corners tank 2">
+  <img src="two corners tank 2.png"/>
+  <p>R U' R' F R U R' U' F'</p>
+  </div>
+  <div class="one corners adjacent 1">
+  <img src="1 corners adjacent 1.png">
+  <p>U' F' L F L2</p><p>U' L U L F' L' F</p>
+  </div>
+  <div class="one corners adjacent 2">
+  <img src="1 corners adjacent 2.png">
+  <p>U' L' U L U L' U L</p>
+  </div>
+  <div class="one corners adjacent 3">
+  <img src="1 corners adjacent 3.png">
+  <p>U R U2 R'</p>
+  </div>
+  <div class="one corners adjacent 4">
+  <img src="1 corners adjacent 4.png">
+  <p>U R U' R' U R</p><p>U' R' U' R' F R F'</p>
+  </div>
+  <div class="one corners bowtie 1">
+  <img src="1 corners bowtie 1.png"/>
+  <p>U' R' F R F'</p>
+  </div>
+  <div class="one corners bowtie 2">
+  <img src="1 corners bowtie 2.png"/>
+  <p>U F' R U2</p><p>R' U R' F2 R</p>
+  </div>
+  <div class="one corners bowtie 3">
+  <img src="1 corners bowtie 3.png"/>
+  <p>F U' R U R' U' F'</p>
+  </div>
+  <div class="one corners bowtie 4">
+  <img src="1 corners bowtie 4.png"/>
+  <p>R U R' U' R U'</p><p>L2 U' L U L F' L' F</p>
+  </div>
+<div class="1 corners gun(back)">
+  <img src="1 corners gun(back).png"/>
+  <p>R U R2 U'</p><p>R2 U' R2 U2 R</p>
+  </div>
+  <div class="1 corners gun(far)">
+  <img src="1 corners gun(far).png"/>
+  <p>R U R' U2 R' F R F'</p>
+  </div>
+  <div class="1 corners gun(near)">
+  <img src="1 corners gun(near).png"/>
+  <p>U R U' R' U R U2 R'</p>
+  </div>
+  <div class="1 corners gun(sides)">
+  <img src="1 corners gun(sides).png"/>
+  <p>F U' R U R'</p><p>U' R U R' U' F'</p>
+  </div>
+  <div class="0 corners h(front)">
+  <img src="0 corners h(front).png">
+  <p>U F U' R U' R' F'</p>
+  </div>
+  <div class="0 corners h(side)">
+  <img src="0 corners h(side).png">
+  <p>U R U' R' U</p><p>R U' R' U R U2 R'</p>
+  </div>
+   <div class="0 corners pi(back)">
+  <img src="0 corners pi(back).png"/>
+  <p>R U' R' F R</p><p>U' R' U' R U R'</p>
+  </div>
+  <div class="0 corners pi(far)">
+  <img src="0 corners pi(far).png"/>
+  <p>R U' R2 U2</p><p>R U R' U R</p>
+  </div>
+  <div class="0 corners pi(front)">
+  <img src="0 corners pi(front).png"/>
+  <p>F U R' U' R U R' U' F'</p>
+  </div>
+  <div class="0 corners pi(near)">
+  <img src="0 corners pi(near).png"/>
+  <p>R U' R2 U'</p><p>R U' R' U2 R</p>
+  </div>
+  <div class="0 corners sune 1">
+  <img src="0 corners sune 1.png"/>
+  <p>R U' R U2 R' U2 R2</p>
+  </div>
+  <div class="0 corners sune 2">
+  <img src="0 corners sune 2.png"/>
+  <p>U R U2 R'</p><p>F U R U' R' F'</p>
+  </div>
+ </div>
   </body>
   </html>
