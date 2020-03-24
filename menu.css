@@ -7,7 +7,7 @@ box-sizing:border-box;
 
 .drop-down-menu ul{display:inline-flex; list-style:none;}
 .drop-down-menu ul li{width:10em; margin:0.5em; padding:0.5em; font-size:150%;}
-.drop-down-menu ul li a{text-decoration:none; color:#808080;}
+.drop-down-menu ul li a{text-decoration:none; color:#808080;text-align:center;}
 .drop-down-menu ul li a:hover {color:#000; border-radius:0.1em;}
 .sub-menu-1{display:none;}
 .drop-down-menu ul li:hover .sub-menu-1 {display:block; position:absolute; background-color:rgb(200,200,200); margin-top:0.5em; margin-left:-0.5em;}
