@@ -7,7 +7,7 @@
     });
   </script>
   <style>
-#home{color:#000;}
+  #home{color:#000;}
 .picholder{
 display:inline-block;
 border:0.2em black solid;
@@ -15,27 +15,45 @@ margin:0.5em;
 }
   body{font-family:sans-serif;}
 
-body{
-background-color:rgb(173, 216, 255);
-}
 
-.center{text-align:center;}
+.center{text-align:center;font-weight:bold;}
 
 .home-images{display:flex;
 justify-content:center;}
 
+
+.vid {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	z-index: -1;
+}
+
+.vidv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+	z-index: -1;
+	filter:opacity(50%);
+}
   </style>
   
 <link href="menu.css" rel="stylesheet">
 
   </head>
   <body>
-  
+<div class="vid">  
+<video class="vidv"  autoplay loop muted>
+<source src="2x2v1.mp4" type="video/mp4">
+</source>
+</video>
  <div id="includedMenu"></div>
  
   <div class = "center">
   <h1>
-  Welcome to Cubing Algs!
+  Welcome to 2x2-algs!
   </h1>
   <h2>About</h2>
 <p>This is website that I made because I think I have made a new algorithm set for 2x2.<br>
@@ -86,7 +104,8 @@ Yuxin Little Magic 3x3
 </a>
 <p>X-Man Bell Magnetic Pyriminx</p>
 </div>
-
-
+</div>
+</div>
+</div>
 </body>
   </html>
