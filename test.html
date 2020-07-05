@@ -10,7 +10,7 @@ var running=false;
 setInterval(function(){
     if(running==true){
         var d = new Date();
-var n = d.getMilliseconds();;
+var n = d.getTime();
 document.getElementById("timer").innerHTML=n-start;
 }
 
@@ -23,6 +23,6 @@ document.getElementById("timer").innerHTML=n-start;
 <body>
 <h2></h2>
 <h1 id="timer" onclick="running=!running;var d = new Date();
- start = d.getMilliseconds();">test</h1>    
+ start = d.getTime();">test</h1>    
 </body>    
 </html>
