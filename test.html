@@ -11,7 +11,7 @@ setInterval(function(){
     if(running==true){
         var d = new Date();
 var n = d.getTime();
-document.getElementById("timer").innerHTML=0.00+(n-start);
+document.getElementById("timer").innerHTML=n-start-999;
 }
 
 }, 10);
