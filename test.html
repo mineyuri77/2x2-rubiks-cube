@@ -4,19 +4,25 @@
 
 </style>
 <script>
-var time = 0;
+var start;
 var alg = 0;
 var running=false;
+setInterval(function(){
+    if(running==true){
+        var d = new Date();
+var n = d.getMilliseconds();;
+document.getElementById("timer").innerHTML=n-start;
+}
+
+}, 10);
 </script>
 <script>
-if(running==true){
-setInterval(function(){time=time+.01;}, 10);
-document.getElementById("timer").innerHTML=time;
-}
+
 </script>
 </head>
 <body>
 <h2></h2>
-<h1 id="timer" onclick="running=!running">test</h1>    
+<h1 id="timer" onclick="running=!running;var d = new Date();
+ start = d.getMilliseconds();">test</h1>    
 </body>    
 </html>
