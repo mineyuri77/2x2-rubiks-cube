@@ -11,18 +11,15 @@ setInterval(function(){
     if(running==true){
         var d = new Date();
 var n = d.getTime();
-document.getElementById("timer").innerHTML=n-start;
+document.getElementById("timer").innerHTML=0.00+(n-start);
 }
 
 }, 10);
-</script>
-<script>
-
 </script>
 </head>
 <body>
 <h2></h2>
 <h1 id="timer" onclick="running=!running;var d = new Date();
- start = d.getTime();">test</h1>    
+ start = d.getTime();">0.00</h1>    
 </body>    
 </html>
