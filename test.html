@@ -10,12 +10,13 @@ var running=false;
 </script>
 <script>
 if(running==true){
-setInterval(function(){time=time+.10;}, 10);
+setInterval(function(){time=time+.01;}, 10);
+document.getElementById("timer").innerHTML=time;
 }
 </script>
 </head>
 <body>
 <h2></h2>
-<h1 onclick="running=!running">test</h1>    
+<h1 id="timer" onclick="running=!running">test</h1>    
 </body>    
 </html>
