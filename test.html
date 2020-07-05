@@ -15,7 +15,7 @@ setInterval(function(){
         var d = new Date();
 var n = d.getTime();
 let str=(n-start).toString();
-if(str.length<2){
+if(str.length<3){
     console.log(str.length+"yes");
     str=str.substring(0,0) + "." + str.substring(1,str.length); 
 }
