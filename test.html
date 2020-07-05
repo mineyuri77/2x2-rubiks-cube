@@ -9,9 +9,13 @@ var alg = 0;
 var running=false;
 setInterval(function(){
     if(running==true){
+        for(let second=0; second>n-start; second++){
+
+        }
+
         var d = new Date();
 var n = d.getTime();
-document.getElementById("timer").innerHTML=n-start-n-start;
+document.getElementById("timer").innerHTML=second;
 }
 
 }, 10);
