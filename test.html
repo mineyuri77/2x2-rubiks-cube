@@ -10,13 +10,11 @@ var running=false;
 var second=0;
 setInterval(function(){
     if(running==true){
-        for(second=0; second>n-start; second){
-second++;
-        }
+        
 
         var d = new Date();
 var n = d.getTime();
-document.getElementById("timer").innerHTML=second;
+document.getElementById("timer").innerHTML=n-start;
 }
 
 }, 10);
