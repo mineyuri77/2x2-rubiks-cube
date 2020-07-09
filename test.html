@@ -35,10 +35,11 @@ document.getElementById("timer").innerHTML=str;
         console.log(alg);
         alg++;
     }
+document.getElementById("scramble").innerHTML=algscramble(alg);
 </script>
 </head>
 <body>
-<h2></h2>
+<h2 id="scramble"></h2>
 <h1 id="timer" onclick="running=!running;var d = new Date();
  start = d.getTime();">0.00</h1>    
 </body>    
