@@ -53,6 +53,22 @@ border-color:black;background-color:green;text-align:center;}
       }
       }
   </script>
+  <script>
+    keys = {};
+    keys[32] = false;
+   
+    window.onkeyup = function (e) {
+      keys[e.keyCode] = false;
+    }
+    window.onkeydown = function (e) {
+      keys[e.keyCode] = true;
+      running=!running;
+        var d = new Date();
+ start = d.getTime();
+ loaded();
+    }
+  
+</script>
   <link href="menu.css" rel="stylesheet"/>
   
   </head>
