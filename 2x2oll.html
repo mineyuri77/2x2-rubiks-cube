@@ -7,6 +7,7 @@ body{background-color:rgb(173, 216, 255);}
 .cases{display:flex;margin:1em;padding:1em;flex-wrap:wrap;justify-content:center;}
 .cases div{margin:0.5em;padding:0.5em;border-width:0.2em;border-style:solid;
 border-color:black;background-color:green;text-align:center;}
+.timer{justify-content: center;}
   </style>
    <script src="jquery-3.1.1.min.js" ></script>
   <script>
@@ -91,7 +92,11 @@ border-color:black;background-color:green;text-align:center;}
 <h1 id="timer" onclick="running=!running;var d = new Date();
  start = d.getTime();loaded()">0.00</h1>    
   </div>
-  </div>
+  <div class="timer">
+  <h2 id="scramble"></h2>
+<h1 id="timer" onclick="running=!running;var d = new Date();
+ start = d.getTime();loaded()">0.00</h1>
+  </div>    
   <div class="cases">
   <video width="50%" autoplay loop muted>
     <source src="2x2v1_lowres.mp4" type="video/mp4">
