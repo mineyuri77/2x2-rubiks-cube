@@ -16,7 +16,45 @@ border-color:black;background-color:green;text-align:center;}
 
     });
   </script>
-
+<script>
+  var start;
+  var running=false;
+  var second=0;
+  setInterval(function(){
+      if(running==true){
+          
+  
+          var d = new Date();
+  var n = d.getTime();
+  let str=(n-start).toString();
+  
+  console.log(str.length+"yes");
+  str=str.substring(0,str.length-3) + "." + str.substring(str.length-3,str.length-1); 
+  
+  
+  document.getElementById("timer").innerHTML=str;
+  }
+  
+  }, 10);
+  </script>
+  <script>
+      var alg = 0;
+      var algscramble=["R2 U2 R' U2 R2", "F U R U' R' U R U' R' F'",
+      "R U R' U R U2 R'", "R U2 R' U' R U' R'","L' U' L U L F' L' F U'",
+      "F R' F' R U R U' R'","F U R U' R' F'"];
+      function loaded(){
+      if(running==false){
+          console.log(alg);
+          document.getElementById("scramble").innerHTML=algscramble[alg];
+          alg++;alert(alg);
+          if(alg>7){
+              alert("yourmomisfat");
+  alg=0;
+  loaded();
+          }
+      }
+      }
+  </script>
   <link href="menu.css" rel="stylesheet"/>
   
   </head>
@@ -52,6 +90,9 @@ border-color:black;background-color:green;text-align:center;}
   <img src="u2x2oll.png"/>
   <p>F R U R' U' F'</p>
   </div>
+  <h2 id="scramble"></h2>
+<h1 id="timer" onclick="running=!running;var d = new Date();
+ start = d.getTime();loaded()">0.00</h1>    
   </div>
   </div>
   <div class="cases">
