@@ -44,6 +44,24 @@ loaded();
     }
     }
 </script>
+<script>
+    keys = {};
+    keys[32] = false;
+   
+    window.onkeyup = function (e) {
+      keys[e.keyCode] = false;
+    }
+    window.onkeydown = function (e) {
+      keys[e.keyCode] = true;
+
+    }
+    if(keys[32]==true){
+        running=!running;
+        var d = new Date();
+ start = d.getTime();
+ loaded();
+    }
+</script>
 </head>
 <body onload="loaded()">
 <h2 id="scramble"></h2>
