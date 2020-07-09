@@ -33,9 +33,12 @@ document.getElementById("timer").innerHTML=str;
     "F R' F' R U R U' R'","F U R U' R' F'"];
     if(running==false){
         console.log(alg);
+        document.getElementById("scramble").innerHTML=algscramble[alg];
         alg++;
+        if(alg>7){
+alg=0;
+        }
     }
-document.getElementById("scramble").innerHTML=algscramble[alg];
 </script>
 </head>
 <body>
