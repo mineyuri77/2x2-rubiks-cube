@@ -28,7 +28,6 @@ border-color:black;background-color:green;text-align:center;}
   var n = d.getTime();
   let str=(n-start).toString();
   
-  console.log(str.length+"yes");
   str=str.substring(0,str.length-3) + "." + str.substring(str.length-3,str.length-1); 
   
   
@@ -44,11 +43,9 @@ border-color:black;background-color:green;text-align:center;}
       "F R' F' R U R U' R'","F U R U' R' F'"];
       function loaded(){
       if(running==false){
-          console.log(alg);
           document.getElementById("scramble").innerHTML=algscramble[alg];
-          alg++;alert(alg);
+          alg++;
           if(alg>7){
-              alert("yourmomisfat");
   alg=0;
   loaded();
           }
@@ -58,7 +55,7 @@ border-color:black;background-color:green;text-align:center;}
   <link href="menu.css" rel="stylesheet"/>
   
   </head>
-  <body>
+  <body onload="loaded()">
 
   <div id="includedMenu">  </div>
   <div class="cases">
