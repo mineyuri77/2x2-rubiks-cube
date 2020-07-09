@@ -27,6 +27,7 @@ document.getElementById("timer").innerHTML=str;
 }, 10);
 </script>
 <script>
+    function loaded(){
     var alg = 0;
     var algscramble=["R2 U2 R' U2 R2", "F U R U' R' U R U' R' F'",
     "R U R' U R U2 R'", "R U2 R' U' R U' R'","L' U' L U L F' L' F U'",
@@ -40,11 +41,12 @@ document.getElementById("timer").innerHTML=str;
 alg=0;
         }
     }
+    }
 </script>
 </head>
-<body>
+<body onload="loaded()">
 <h2 id="scramble"></h2>
 <h1 id="timer" onclick="running=!running;var d = new Date();
- start = d.getTime();">0.00</h1>    
+ start = d.getTime();loaded()">0.00</h1>    
 </body>    
 </html>
