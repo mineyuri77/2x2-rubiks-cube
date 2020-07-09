@@ -53,14 +53,12 @@ loaded();
     }
     window.onkeydown = function (e) {
       keys[e.keyCode] = true;
-
-    }
-    if(keys[32]==true){
-        running=!running;
+      running=!running;
         var d = new Date();
  start = d.getTime();
  loaded();
     }
+  
 </script>
 </head>
 <body onload="loaded()">
