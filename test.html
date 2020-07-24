@@ -28,9 +28,11 @@ document.getElementById("timer").innerHTML=str;
 </script>
 <script>
     var alg = 0;
-    var algscramble=["R2 U R2 U2 B2 U R2", "R' U R' F2 R F' R",
-    "R2 B2 R2", "R U R2 F' R U R U' R' F R U' R'",
-    "F R' F' R U R U' R' F R U' R' U R U R' F'"];
+    var algscramble=["f U R U' R' f' F U R U' R' F'", "f U R U' R' f'",
+    "F U R U' R' F'", "R U2 R' U' R U' R'",
+    "R U R' U R U2 R'","F U R U' R' U R U' R' U R U' R' F'",
+    "D' R' U R D R' U' R x'","R' U2 R2 U R2 U R2 U2 R'",
+    "U R' U' L U R U' L' x'","R U2 R D R' U2 R D' R2"];
     function loaded(){
     if(running==false){
         console.log(alg);
