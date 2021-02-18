@@ -7,6 +7,7 @@ body{background-color:rgb(173, 216, 255);}
 .cases{display:flex;margin:1em;padding:1em;flex-wrap:wrap;justify-content:center;}
 .cases div{margin:0.5em;padding:0.5em;border-width:0.2em;border-style:solid;
 border-color:black;background-color:green;text-align:center;}
+.timer{text-align: center;}
   </style>
    <script src="jquery-3.1.1.min.js" ></script>
   <script>
@@ -16,11 +17,81 @@ border-color:black;background-color:green;text-align:center;}
 
     });
   </script>
-
+<script>
+  var start;
+  var running=false;
+  var second=0;
+  setInterval(function(){
+      if(running==true){
+          
+  
+          var d = new Date();
+  var n = d.getTime();
+  let str=(n-start).toString();
+  
+  str=str.substring(0,str.length-3) + "." + str.substring(str.length-3,str.length-1); 
+  
+  
+  document.getElementById("timer").innerHTML=str;
+  }
+  
+  }, 10);
+  </script>
+    <script>
+      var alg = 0;
+      var algscramble=["L', U', L, U', F', L', U, L2, F, L'", "F', L, F, L', U', L, F, L2, U', L", 
+      "L, F', L2, U, L, U', L', U, L, F'", "F', R', F, R, U, R, U, R', U', R, U, R'", 
+      "R', F, R, F', U, R, U', R2, F', R, F", "L', U', L, F2, U', F', L', U', L", 
+      "R, U, R', U, F, R, U', R2, F', R", "F, L, F', L', U', L', U', L, U, L', U', L", 
+      "R', F, R2, U', R', U, R, U', R', F", "F, R', F', R, U, R', F', R2, U, R'", 
+      "L, F', L', F, U', L', U, L2, F, L', F'", "R, U, R', F2, U, F, R, U, R'", 
+      "R, U', R', F2, U, R', F', R, U, F'", "R, U, R', U, R, U', R2, F', R, F, R', F', R", 
+      "R, U, R', F', R, U, R', U', R, U, R'", "L', U', L, U', L', U, L2, F, L', F', L, F, L'", 
+      "R', U', R', F2, U, F', R, F'", "R', F', R2, U, R2, F', R", 
+      "x, U', L, U, L, F, x', F', R, U, R', F'", "F', U2, R, U2, R', U2, F", 
+      "F', U2, F', L, F2, L', U', F", "L', U', L2, F, L', F', L, F, L'", 
+      "F, U2, F, R', F2, R, U, F'", "R, U, R', U, R, U', R2, F', R2, U, R'", 
+      "R, U2, R', F, R, U', R2, F', R", "R', F, R, F', U, R, U', R', F, R, U', R'", 
+      "U, L, F', L', U, L", "F, L, F', L2, U', L, U, L', U', L", 
+      "F', R', F, R2, U, R', U', R, U, R'", "R, U, R2, F', U, R2, U, R2, U', R", 
+      "R, U', R, U, R', U, R, U, B2, R2", "R, U, R', U, F', R, U', R', F', R, U', R'", 
+      "R, U', R', U, R, U', R2, F', R, F", "R, U', R', F, R, U', R2, F, R", 
+      "L', U, L, U', L', U, L2, F, L', F'", "L', U2, L, U, L, F, L2, U', L", 
+      "F, R, U', R', F', R, U, R2, F', R", "R, U', R', U, R, U', R', F, R, U', R'", 
+      "F', R, U2, R', F', U2, F, R', F', R", "F', U, R', F2, R2, U, R', U', F", 
+      "R, U, R2, F', R, U, R, U', R', F, R, U', R', z2, y'", "R', U, R', F2, R, F', R, x2", 
+      "R2, U, R2, U2, B2, U, R2, y2"];
+      function loaded(){
+      if(running==false){
+          document.getElementById("scramble").innerHTML=algscramble[alg];
+          alg++;
+          if(alg>43){
+  alg=0;
+ // loaded();
+          }
+      }
+      }
+  </script>
+  <script>
+    keys = {};
+    keys[32] = false;
+   
+    window.onkeyup = function (e) {
+      keys[e.keyCode] = false;
+    }
+    window.onkeydown = function (e) {
+      keys[e.keyCode] = true;
+      running=!running;
+        var d = new Date();
+ start = d.getTime();
+ loaded();
+    }
+  
+</script>
   <link href="menu.css" rel="stylesheet"/>
   
   </head>
-  <body>
+  <body onload="loaded();">
 
   <div id="includedMenu"></div>
   <div class="cases">
@@ -197,6 +268,11 @@ border-color:black;background-color:green;text-align:center;}
   <p>y2 R2 U' B2</p><p>U2 R2 U' R2</p>
   </div>
   </div>
+  <div class="timer">
+    <h2 id="scramble"></h2>
+  <h1 id="timer" onclick="running=!running;var d = new Date();
+   start = d.getTime();loaded()">0.00</h1>
+    </div>    
 <div class="cases">
   <video width="50%" autoplay loop muted>
     <source src="2x2v1_lowres.mp4" type="video/mp4">
