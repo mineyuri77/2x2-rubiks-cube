@@ -39,20 +39,20 @@ border-color:black;background-color:green;text-align:center;}
   </script>
     <script>
       var alg = 0;
-      var algscramble=["R U2 R' U' R U' R'","F' L F L' U2 L' U2 L","R U2 R' U2 R' F R F'",
-    "F' L F L' U' R U2 R' F' R U2 R'","R' F R F' R U R'","R U2 R' F R' F' R U' R U' R'",
-  "R U R' U R U2 R'","F R' F' R U L' U2 L F L' U2 L","L' U2 L U2 L F' L' F",
-"F R' F' R U2 R U2 R'","R U' R' F R' F' R","R' U R U' R' F R' F' R2 U R' U' R",
-"F U R U' R' F' F U R U' R' F'","F' U R U R' U2 F R' F2 R","F R2 U' R2 U' R2 U R2 F'",
-"F R' F' R U2 R U' R' U R U2 R'","L' U' L U' L' U' L F' R U R'","R2 U' R' U F' R U' R' F2 R2",
-"F' R U R' F U2 R U' R' F'","R' U' R U2 R' F R' F' R U' R","R2 F' R U' R' F2 R F R' F' R2",
-"U R U' R' U R U' R' F R' F' R2 U R'","F U R U' R' F'","R2 U R' U' R U R' U2 R U' R",
-"F R' F2 R U' R' F2 R2 U2 R'","R' F2 R U' R U2 R' F R U2 R'","R U R' U' R' F R F'",
-"F R U' R' U R U R' F'","R U2 R' F R' F' R2 U2 R'","R2 F2 U' R' U F' R U' R",
-"R' F R' F' R2 U2 R' U' R","F' L F L' U' L' U L","F R U' R' U R U R' U R U' R' F'",
-"F R' F' R U R U' R'","R U' R' F2 U R U2 R' U F'","U2 R2 U2 R U2 R2",
-"F R2 U' R2 U R2 U R2 F'","L' U R U' L U' R' U' R U' R'","F U R U' R' U R U' R' U R U' R' F'",
-"R U R2 F' R U R U' R' F R U' R'","F R' F' R U R U' R' F R U' R' U R U R' F'"];
+      var algscramble=["R, U2, R', U', R, U', R'","F', L, F, L', U2, L', U2, L","R, U2, R', U2, R', F, R, F'",
+    "F', L, F, L', U', R, U2, R', F', R, U2, R'","R', F, R, F', R, U, R'","R, U2, R', F, R', F', R, U', R, U', R'",
+  "R, U, R', U, R, U2, R'","F, R', F', R, U, L', U2, L, F, L', U2, L","L', U2, L, U2, L, F', L', F",
+"F, R', F', R, U2, R, U2, R'","R, U', R', F, R', F', R","R', U, R, U', R', F, R', F', R2, U, R', U', R",
+"F, U, R, U', R', F', F, U, R, U', R', F'","F', U, R, U, R', U2, F, R', F2, R","F, R2, U', R2, U', R2, U, R2, F'",
+"F, R', F', R, U2, R, U', R', U, R, U2, R'","L', U', L, U', L', U', L, F', R, U, R'","R2, U', R', U, F', R, U', R', F2, R2",
+"F', R, U, R', F, U2, R, U', R', F'","R', U', R, U2, R', F, R', F', R, U', R","R2, F', R, U', R', F2, R, F, R', F', R2",
+"U, R, U', R', U, R, U', R', F, R', F', R2, U, R'","F, U, R, U', R', F'","R2, U, R', U', R, U, R', U2, R, U', R",
+"F, R', F2, R, U', R', F2, R2, U2, R'","R', F2, R, U', R, U2, R', F, R, U2, R'","R, U, R', U', R', F, R, F'",
+"F, R, U', R', U, R, U, R', F'","R, U2, R', F, R', F', R2, U2, R'","R2, F2, U', R', U, F', R, U', R",
+"R', F, R', F', R2, U2, R', U', R","F', L, F, L', U', L', U, L","F, R, U', R', U, R, U, R', U, R, U', R', F'",
+"F, R', F', R, U, R, U', R'","R, U', R', F2, U, R, U2, R', U, F'","U2, R2, U2, R, U2, R2",
+"F, R2, U', R2, U, R2, U, R2, F'","L', U, R, U', L, U', R', U', R, U', R'","F, U, R, U', R', U, R, U', R', U, R, U', R', F'",
+"R, U, R2, F', R, U, R, U', R', F, R, U', R'","F, R', F', R, U, R, U', R', F, R, U', R', U, R, U, R', F'"];
       function loaded(){
       if(running==false){
           document.getElementById("scramble").innerHTML=algscramble[alg];
