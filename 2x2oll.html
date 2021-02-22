@@ -46,7 +46,7 @@ border-color:black;background-color:green;text-align:center;}
       if(running==false){
           document.getElementById("scramble").innerHTML=algscramble[alg];
           alg++;
-          if(alg>7){
+          if(alg>algscramble.length){
   alg=0;
   loaded();
           }
