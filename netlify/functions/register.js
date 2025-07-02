@@ -26,6 +26,7 @@ exports.handler = async function(event, context) {
     db = JSON.parse(fileContent);
   } catch {
     db = {};
+    return { statusCode: 500, body: JSON.stringify({ success: false, message: "Failed to read database" }) };
   }
 
   if (db[username]) {
