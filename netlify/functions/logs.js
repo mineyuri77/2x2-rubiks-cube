@@ -1,6 +1,5 @@
-const fs = require("fs");
-const path = require("path");
-const DATABASE_FILE = path.join(__dirname, "../../database.json");
+import { neon } from '@netlify/neon';
+const sql = neon();
 
 exports.handler = async function(event, context) {
   if (event.httpMethod !== "GET") {
@@ -10,15 +9,13 @@ exports.handler = async function(event, context) {
   if (!userid) {
     return { statusCode: 400, body: JSON.stringify({ success: false, message: "Missing userid" }) };
   }
-  let db = {};
   try {
-    const fileContent = fs.readFileSync(DATABASE_FILE, "utf8");
-    db = JSON.parse(fileContent);
-  } catch {
-    db = {};
+    const [user] = await sql`SELECT logs FROM users WHERE username = ${userid}`;
+    if (!user || !user.logs) {
+      return { statusCode: 200, body: JSON.stringify({ success: true, logs: [] }) };
+    }
+    return { statusCode: 200, body: JSON.stringify({ success: true, logs: user.logs }) };
+  } catch (err) {
+    return { statusCode: 500, body: JSON.stringify({ success: false, message: "Database error", error: err.message }) };
   }
-  if (!db[userid] || !Array.isArray(db[userid].logs)) {
-    return { statusCode: 200, body: JSON.stringify({ success: true, logs: [] }) };
-  }
-  return { statusCode: 200, body: JSON.stringify({ success: true, logs: db[userid].logs }) };
 };

@@ -1,7 +1,6 @@
-const fs = require("fs");
-const path = require("path");
+import { neon } from '@netlify/neon';
 const bcrypt = require("bcrypt");
-const DATABASE_FILE = path.join(__dirname, "../../database.json");
+const sql = neon();
 
 exports.handler = async function(event, context) {
   if (event.httpMethod !== "POST") {
@@ -20,19 +19,13 @@ exports.handler = async function(event, context) {
     return { statusCode: 400, body: JSON.stringify({ success: false, message: "Missing username or password" }) };
   }
 
-  let db = {};
   try {
-    const fileContent = fs.readFileSync(DATABASE_FILE, "utf8");
-    db = JSON.parse(fileContent);
-  } catch {
-    db = {};
-  }
-
-  if (db[username]) {
-    const match = await bcrypt.compare(password, db[username].password);
-    if (match) {
+    const [user] = await sql`SELECT * FROM users WHERE username = ${username}`;
+    if (user && await bcrypt.compare(password, user.password)) {
       return { statusCode: 200, body: JSON.stringify({ success: true, message: "Sign-in successful!" }) };
     }
+    return { statusCode: 200, body: JSON.stringify({ success: false, message: "Invalid username or password" }) };
+  } catch (err) {
+    return { statusCode: 500, body: JSON.stringify({ success: false, message: "Database error", error: err.message }) };
   }
-  return { statusCode: 200, body: JSON.stringify({ success: false, message: "Invalid username or password" }) };
 };

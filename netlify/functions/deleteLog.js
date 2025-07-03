@@ -1,6 +1,5 @@
-const fs = require("fs");
-const path = require("path");
-const DATABASE_FILE = path.join(__dirname, "../../database.json");
+import { neon } from '@netlify/neon';
+const sql = neon();
 
 exports.handler = async function(event, context) {
   if (event.httpMethod !== "DELETE") {
@@ -16,21 +15,15 @@ exports.handler = async function(event, context) {
   if (!userid || typeof index !== 'number') {
     return { statusCode: 400, body: JSON.stringify({ success: false, message: "Missing userid or index" }) };
   }
-  let db = {};
   try {
-    const fileContent = fs.readFileSync(DATABASE_FILE, "utf8");
-    db = JSON.parse(fileContent);
-  } catch {
-    db = {};
-  }
-  if (!db[userid] || !Array.isArray(db[userid].logs) || index < 0 || index >= db[userid].logs.length) {
-    return { statusCode: 404, body: JSON.stringify({ success: false, message: "Log not found" }) };
-  }
-  db[userid].logs.splice(index, 1);
-  try {
-    fs.writeFileSync(DATABASE_FILE, JSON.stringify(db, null, 2));
+    const [user] = await sql`SELECT logs FROM users WHERE username = ${userid}`;
+    if (!user || !Array.isArray(user.logs) || index < 0 || index >= user.logs.length) {
+      return { statusCode: 404, body: JSON.stringify({ success: false, message: "Log not found" }) };
+    }
+    user.logs.splice(index, 1);
+    await sql`UPDATE users SET logs = ${JSON.stringify(user.logs)} WHERE username = ${userid}`;
     return { statusCode: 200, body: JSON.stringify({ success: true }) };
-  } catch {
-    return { statusCode: 500, body: JSON.stringify({ success: false, message: "Failed to write to database" }) };
+  } catch (err) {
+    return { statusCode: 500, body: JSON.stringify({ success: false, message: "Database error", error: err.message }) };
   }
 };

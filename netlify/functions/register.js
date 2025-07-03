@@ -1,7 +1,7 @@
-const fs = require("fs");
-const path = require("path");
+import { neon } from '@netlify/neon';
 const bcrypt = require("bcrypt");
-const DATABASE_FILE = path.join(__dirname, "../../database.json");
+
+const sql = neon(); // Uses NETLIFY_DATABASE_URL automatically
 
 exports.handler = async function(event, context) {
   if (event.httpMethod !== "POST") {
@@ -20,26 +20,18 @@ exports.handler = async function(event, context) {
     return { statusCode: 400, body: JSON.stringify({ success: false, message: "Missing username or password" }) };
   }
 
-  let db = {};
   try {
-    const fileContent = fs.readFileSync(DATABASE_FILE, "utf8");
-    db = JSON.parse(fileContent);
-  } catch {
-    db = {};
-    return { statusCode: 500, body: JSON.stringify({ success: false, message: "Failed to read database" }) };
-  }
+    // Check if user exists
+    const [user] = await sql`SELECT * FROM users WHERE username = ${username}`;
+    if (user) {
+      return { statusCode: 200, body: JSON.stringify({ success: false, message: "Username already exists" }) };
+    }
 
-  if (db[username]) {
-    return { statusCode: 200, body: JSON.stringify({ success: false, message: "Username already exists" }) };
-  }
-
-  const hashedPassword = await bcrypt.hash(password, 10);
-  db[username] = { password: hashedPassword, logs: [] };
-
-  try {
-    fs.writeFileSync(DATABASE_FILE, JSON.stringify(db, null, 2));
-    return { statusCode: 200, body: JSON.stringify({ success: true, message: "Registration successful!" }) };
-  } catch {
-    return { statusCode: 500, body: JSON.stringify({ success: false, message: "Failed to write to database" }) };
+    // Hash password and insert new user
+    const hashedPassword = await bcrypt.hash(password, 10);
+    await sql`INSERT INTO users (username, password, logs) VALUES (${username}, ${hashedPassword}, '[]')`;
+    return { statusCode: 200, body: JSON.stringify({ success: true, message: "User registered successfully" }) };
+  } catch (err) {
+    return { statusCode: 500, body: JSON.stringify({ success: false, message: "Database error", error: err.message }) };
   }
 };
