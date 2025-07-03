@@ -2,20 +2,25 @@ import { neon } from '@netlify/neon';
 const sql = neon();
 
 exports.handler = async function(event, context) {
+  console.log('Received event:', event);
   if (event.httpMethod !== "GET") {
+    console.log('Invalid method:', event.httpMethod);
     return { statusCode: 405, body: "Method Not Allowed" };
   }
   const { userid } = event.queryStringParameters || {};
   if (!userid) {
+    console.log('Missing userid in queryStringParameters');
     return { statusCode: 400, body: JSON.stringify({ success: false, message: "Missing userid" }) };
   }
   try {
     const [user] = await sql`SELECT logs FROM users WHERE username = ${userid}`;
+    console.log('Fetched user logs:', user);
     if (!user || !user.logs) {
       return { statusCode: 200, body: JSON.stringify({ success: true, logs: [] }) };
     }
     return { statusCode: 200, body: JSON.stringify({ success: true, logs: user.logs }) };
   } catch (err) {
+    console.error('Database error:', err);
     return { statusCode: 500, body: JSON.stringify({ success: false, message: "Database error", error: err.message }) };
   }
 };
