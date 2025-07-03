@@ -3,6 +3,7 @@
     "bcrypt": "^6.0.0",
     "express": "^5.1.0",
     "fs": "^0.0.1-security",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "@netlify/neon": "^0.6.0"
   }
 }
