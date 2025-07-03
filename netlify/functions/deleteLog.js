@@ -5,7 +5,7 @@ exports.handler = async function(event, context) {
   console.log('Received event:', event);
   // Set allowed origins
   const allowedOrigins = [
-    "https://yourdomain.com", // Replace with your domain
+    "https://doorsensorfrontend.netlify.app", // Replace with your domain
     "capacitor://localhost", // Capacitor/Electron apps
     "ionic://localhost",     // Ionic mobile apps
     "file://",               // Electron/Capacitor/PhoneGap
