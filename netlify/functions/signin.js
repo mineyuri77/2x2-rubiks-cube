@@ -2,14 +2,15 @@ import { neon } from '@netlify/neon';
 const bcrypt = require("bcrypt");
 const sql = neon();
 
-exports.handler = async function(event, context) {
+exports.handler = async function (event, context) {
   console.log('Received event:', event);
   // Set allowed origins
   const allowedOrigins = [
-    "https://doorsensorfrontend.netlify.app", // Replace with your domain
-    "capacitor://localhost", // Capacitor/Electron apps
-    "ionic://localhost",     // Ionic mobile apps
-    "file://",               // Electron/Capacitor/PhoneGap
+    "https://doorsensorfrontend.netlify.app",
+    "capacitor://localhost",
+    "capacitor://app",
+    "ionic://localhost",
+    "file://"
   ];
   const origin = event.headers.origin || event.headers.Origin || "";
   const allowOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
