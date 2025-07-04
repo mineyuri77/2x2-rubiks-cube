@@ -10,6 +10,8 @@ exports.handler = async function (event, context) {
     "capacitor://localhost",
     "capacitor://app",
     "ionic://localhost",
+    "https://localhost",
+    "localhost",
     "file://"
   ];
   const origin = event.headers.origin || event.headers.Origin || "";
